@@ -1,0 +1,67 @@
+/*
+   JaCaMo Packape CNP
+*/
+
+defaultTasks 'pkg'
+
+apply plugin: 'java'
+
+version '1.0.0'
+group   'org.jacamo'
+
+repositories {
+    maven { url "https://raw.githubusercontent.com/jacamo-lang/mvn-repo/master" }
+    maven { url "https://repo.gradle.org/gradle/libs-releases" }
+
+    mavenCentral()
+}
+
+dependencies {
+    implementation('org.jacamo:jacamo:1.1')
+}
+
+sourceSets {
+    main {
+        java {
+            srcDir 'src/env'
+            srcDir 'src/agt'
+            srcDir 'src/org'
+            srcDir 'src/int'
+            srcDir 'src/java'
+        }
+        resources {
+            srcDir 'src/resources'
+        }
+    }
+}
+
+task pkg(type: Jar, dependsOn: 'classes') {
+    group      ' JaCaMo'
+    description 'creates a jar for this package'
+    duplicatesStrategy 'exclude'
+
+    // manifest {
+    //     attributes 'Main-Class': 'jacamo.infra.JaCaMoLauncher'
+    // }
+    archiveBaseName = 'cnp' // the name must start with jacamo so that jacamo...jar is found in the classpath
+    //from { configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
+    from (project.projectDir.absolutePath + '/src') {
+        include '**/*.asl'
+        include '**/*.xml'
+        include '**/*.sai'
+        include '**/*.ptl'
+        include '**/*.jcm'
+        exclude 'test'
+    }
+    from (project.buildDir.absolutePath + '/classes') {
+        include '**/*'
+    }
+    with jar
+
+}
+
+clean {
+    delete 'bin'
+    delete 'build'
+    delete 'log'
+}

@@ -1,0 +1,16 @@
+/*
+    basic example of use of Package CNP
+    -----------------------------------
+
+*/
+
+mas basic {
+
+    agent alice {
+      goals: start_cnp(cnp1,fix_tv,2000)
+    }
+
+    agent company {
+      instances: 3
+    }
+}
