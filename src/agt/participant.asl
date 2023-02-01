@@ -2,7 +2,8 @@
 
 +!participate(A,Task)
    <: false // this intention is finished only by the internal action .done, since the goal condition ('false') will never hold
-   <- !price(Offer);.print(aqui2);
+   <- //!price(Task,Offer);.print(aqui2);
+      ?price(Offer); // TODO: remove
       +my_offer(Offer);
       .send(A,tell,::propose(Offer)).
    // the plans below are relevant only while the intention for +cfp is 'running'
