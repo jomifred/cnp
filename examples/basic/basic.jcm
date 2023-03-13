@@ -13,4 +13,8 @@ mas basic {
     agent company {
       instances: 3
     }
+
+    uses package: cnp "/Users/jomi/pro/cnp-acl/build/libs/cnp-acl-1.0.0.jar"
+    //uses package: cnp "org.jacamo:cnp-acl:1.0.0" // gradle like
+
 }

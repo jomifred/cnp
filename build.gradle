@@ -40,11 +40,8 @@ task pkg(type: Jar, dependsOn: 'classes') {
     description 'creates a jar for this package'
     duplicatesStrategy 'exclude'
 
-    // manifest {
-    //     attributes 'Main-Class': 'jacamo.infra.JaCaMoLauncher'
-    // }
-    archiveBaseName = 'cnp' // the name must start with jacamo so that jacamo...jar is found in the classpath
-    //from { configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
+    archiveBaseName = project.name
+    
     from (project.projectDir.absolutePath + '/src') {
         include '**/*.asl'
         include '**/*.xml'
@@ -57,7 +54,6 @@ task pkg(type: Jar, dependsOn: 'classes') {
         include '**/*'
     }
     with jar
-
 }
 
 clean {
