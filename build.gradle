@@ -55,6 +55,14 @@ jar {
     }
 }
 
+publishing {
+    publications {
+        maven(MavenPublication) {
+		    from components.java
+        }
+    }
+}
+
 clean {
     delete 'bin'
     delete 'build'
