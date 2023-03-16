@@ -22,7 +22,7 @@ repositories {
 
 dependencies {
     implementation('org.jacamo:jacamo:1.2-SNAPSHOT')
-    implementation('com.github.jomifred:cnp-acl:1.0.1') // ** new
+    implementation('com.github.jomifred:cnp-acl:1.0.2') // ** new
 }
 
 sourceSets {

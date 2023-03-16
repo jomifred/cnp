@@ -63,6 +63,11 @@ publishing { // ** new
     }
 }
 
+wrapper {
+    gradleVersion = "7.6"
+    distributionType = Wrapper.DistributionType.ALL
+}
+
 clean {
     delete 'bin'
     delete 'build'
