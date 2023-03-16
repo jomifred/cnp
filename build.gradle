@@ -5,10 +5,10 @@
 defaultTasks 'pkg'
 
 apply plugin: 'java'
-apply plugin: 'maven-publish'
+apply plugin: 'maven-publish' // ** new 
 
 version '1.0.0'
-group = 'com.github.jomifred'
+group = 'com.github.jomifred' // ** changed
 
 
 repositories {
@@ -19,7 +19,7 @@ repositories {
 }
 
 dependencies {
-    implementation('org.jacamo:jacamo:1.1')
+    implementation('org.jacamo:jacamo:1.2-SNAPSHOT')
 }
 
 sourceSets {
@@ -37,7 +37,7 @@ sourceSets {
     }
 }
 
-jar {
+jar { // ** new
     duplicatesStrategy 'exclude'
 
     archiveBaseName = project.name
@@ -55,13 +55,13 @@ jar {
     }
 }
 
-// publishing {
-//     publications {
-//         maven(MavenPublication) {
-// 		    from components.java
-//         }
-//     }
-// }
+publishing { // ** new
+    publications {
+        maven(MavenPublication) {
+		    from components.java
+        }
+    }
+}
 
 clean {
     delete 'bin'
