@@ -14,7 +14,5 @@ mas basic {
       instances: 3
     }
 
-    uses package: cnp "com.github.jomifred:cnp-acl:1.0.0"
-                  //cnp "/Users/jomi/pro/cnp-acl/build/libs/cnp-acl-1.0.0.jar"
-
+    uses package: cnp "com.github.jomifred:cnp-acl:1.0.3"
 }

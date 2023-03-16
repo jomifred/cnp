@@ -17,12 +17,12 @@ repositories {
     maven { url "https://repo.gradle.org/gradle/libs-releases" }
 
     mavenCentral()
-    maven { url "https://jitpack.io" } // ** new
+    maven { url "https://jitpack.io" } 
 }
 
 dependencies {
     implementation('org.jacamo:jacamo:1.2-SNAPSHOT')
-    implementation('com.github.jomifred:cnp-acl:1.0.2') // ** new
+    implementation('com.github.jomifred:cnp-acl:1.0.3')
 }
 
 sourceSets {
