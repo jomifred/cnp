@@ -16,4 +16,7 @@
 +!CNP_Id::price(Task,P) <- P = (10*math.random)+100.
 
 // plan to perform the contracted Task (here just print to illustrate)
-+!CNP_Id::do <- .print("Doing my task for ",CNP_Id," .....").
++!CNP_Id::do 
+   <- .print("Doing my task for ",CNP_Id," .....");
+      .wait(1000);
+      .print("done!").

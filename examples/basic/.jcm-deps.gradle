@@ -4,6 +4,6 @@
 apply plugin: 'java'
 
 dependencies {
-    implementation('com.github.jomifred:cnp-acl:1.0.3')
+    implementation('com.github.jomifred:cnp-acl:1.0.5')
 
 }

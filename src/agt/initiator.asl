@@ -9,6 +9,7 @@ all_proposals_received
 
 
 +!cnp(Task,TimeOut)
+    <: state(end) // condition for this intention finish
     <- !call; !bids; !winner(LO); !result(LO). {
 
     // the plans below are !cnp sub-plans and
@@ -16,6 +17,7 @@ all_proposals_received
 
     +!call
        <- -+state(call);
+          +task(Task); // remember the task of this CNP
           .df_search("participant",LP);
           .print("Sending CFP to ",LP);
           +nb_participants(.length(LP));
@@ -52,4 +54,8 @@ all_proposals_received
           for( .member( offer(_,Ag), LO) & Ag \== WAg) {
              .send(Ag, tell,::reject_proposal);
           }.
+
+   +done 
+       <- -+state(finished);
+          -+state(end).
 }

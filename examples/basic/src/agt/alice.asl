@@ -7,9 +7,8 @@
         !CNP_Id::cnp(Task,TimeOut).
 
 // the following plans react to some evolution of the CNP
++CNP_Id::state(S)
+    <- .print(CNP_Id, ": ",S).
 
 +CNP_Id::winner(Ag) : CNP_Id::propose(Offer)[source(Ag)]
     <- .print("Agent ",Ag," won the CNP ", CNP_Id, " with offer ",Offer).
-+CNP_Id::done : CNP_Id::winner(Ag)
-    <- .print(Ag," has finished the task").
-       // TODO: remove the namespace

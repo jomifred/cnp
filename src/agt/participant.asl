@@ -2,7 +2,8 @@
 
 +!participate(A,Task)
    <: false // this intention is finished only by the internal action .done, since the goal condition ('false') will never hold
-   <- !price(Task,Offer);
+   <- +task(Task); // remember the task of this CNP
+      !price(Task,Offer);
       +my_offer(Offer);
       .send(A,tell,::propose(Offer)).
    // the sub plans below are relevant only while the intention for +cfp is 'running'
