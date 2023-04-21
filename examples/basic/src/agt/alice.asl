@@ -3,8 +3,8 @@
 
 +!start_cnp(CNP_Id,Task,TimeOut)
     <-  .include("$cnp/agt/initiator.asl", CNP_Id); // loads initiator.asl into namespace CNP_Id
+        //.include("../../src/agt/initiator.asl", CNP_Id); // loads initiator.asl into namespace CNP_Id
         !CNP_Id::cnp(Task,TimeOut).
-
 
 // the following plans react to some evolution of the CNP
 
